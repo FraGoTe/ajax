@@ -15,9 +15,7 @@ use Zend\View\Model\ViewModel;
  * @author ZasDev
  * @link https://github.com/zasDev
  */
-class Module implements BootstrapListenerInterface,
-                        ConfigProviderInterface,
-                        AutoloaderProviderInterface
+class Module implements BootstrapListenerInterface, ConfigProviderInterface, AutoloaderProviderInterface
 {
 
     /**
@@ -67,7 +65,8 @@ class Module implements BootstrapListenerInterface,
      * This is called after the action is executed
      * @param MvcEvent $e
      */
-    public function ajaxOpperations(MvcEvent $e) {
+    public function ajaxOpperations(MvcEvent $e)
+    {
         $model      = $e->getResult();
         $request    = $e->getRequest();
         if (
@@ -86,7 +85,5 @@ class Module implements BootstrapListenerInterface,
                 $model->setTerminal($request->isXmlHttpRequest());
             }
         }
-
     }
-
 }
